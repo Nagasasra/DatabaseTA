@@ -1,0 +1,66 @@
+<style>
+    .picture1 {
+        -webkit-background-size: 32px 32px;
+        background-size: 32px 32px;
+        border: 0;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        display: block;
+        margin-top: 5px;
+        position: relative;
+        height: 32px;
+        width: 32px;
+        z-index: 0;
+    }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<div class="container">
+  
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/transactions">Transactions <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item dropdown active">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Menu
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+          <a class="dropdown-item" href="/menus">Menu</a>
+          <a class="dropdown-item" href="/categories">Menu Categories</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown active">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          More
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+          <a class="dropdown-item" href="/staffs">Staffs</a>
+          <a class="dropdown-item" href="/tables">Tables</a>
+        </div>
+      </li>
+    </ul>
+    <!-- <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form> -->
+    <ul class="navbar-nav">
+      <img src="/static/profiles/{{session.picture if session.picture else 'default.png'}}" alt="" class="picture1">
+      <li class="nav-item dropdown active">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{ session.username }}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/profile">Profile</a>
+          <a class="dropdown-item" href="/logout">Log Out</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav>

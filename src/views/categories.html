@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+
+{% block title %} Menu Categories {% endblock %}
+
+{% block body %}
+
+<br />
+    <div class="d-flex justify-content-center">
+        <h1>List of Categories</h1>
+    </div>
+<br />
+
+<div class="container">
+	<div class="d-flex justify-content-end">
+		<a href="/categories/add"><span type="button" class="btn btn-primary">Add Category</span></a>
+	</div>
+	<br />
+	<table id="example" class="display table table-bordered table-sm" style="width:100%">
+	  <thead>
+	      <tr>
+	          <th>Category</th>
+	          <th>Number of Menu(s)</th>
+	      </tr>
+	  </thead>
+	  <tbody>
+	    {% for category in categories %}
+	      <tr>
+	        <td>{{category["category"]}}</td>
+	        <td>{{category["numMenus"]}}</td>
+	      </tr>
+	    {% endfor %}
+	  </tbody>
+	</table>
+</div>
+
+{% endblock %}
+
+{% block js %}
+
+  <script>
+    $(document).ready(function() {
+        $('#example').DataTable();
+    } );
+  </script>
+
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'layout.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block body %}
+
+<br />
+    <div class="d-flex justify-content-center">
+        <h1>Adding a Staff</h1>
+    </div>
+<br />
+
+<div class="container d-flex justify-content-center" >
+    <div class="col-md-4" style="border:1px solid #cecece; padding:40px 20px 40px 20px;">
+        <div class="invalid-feedback d-flex justify-content-center">{{ errorMessage }}</div>
+      <form action="#" method="get">
+        <div class="form-group">
+          <input type="text" class="form-control" name="firstName" placeholder="First Name">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" name="lastName" placeholder="Last Name">
+        </div>
+        <div class="form-group">
+            <label> Age</label>
+          <input type="number" class="form-control" name="age" placeholder="Age">
+        </div>
+        <div class="form-group">
+        	<select name="gender" class="form-control" required="required">
+        		<option value="">Choose gender</option>
+        			<option value="Female">Female</option>
+                    <option value="Male">Male</option>
+        	</select>
+        </div>
+        <div class="form-group">
+            <select name="position" class="form-control" required="required">
+                <option value="">Choose position</option>
+                    <option value="Chef">Chef</option>
+                    <option value="Waiter">Waiter</option>
+                    <option value="Cashier">Cashier</option>
+                    <option value="Owner">Owner</option>
+            </select>
+        </div>
+        <div class="form-group">
+          <input type="email" class="form-control" name="email" placeholder="Email Address">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

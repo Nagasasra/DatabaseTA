@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+
+{% block title %} Tables {% endblock %}
+
+{% block body %}
+
+<br />
+    <div class="d-flex justify-content-center">
+        <h1>List of Tables</h1>
+    </div>
+<br />
+
+<div class="container">
+	<br />
+	<table id="example" class="display table table-bordered table-sm" style="width:100%">
+	  <thead>
+	      <tr>
+	          <th>Table Number</th>
+	          <th>Number of Seat(s)</th>
+	          <th>Availability</th>
+	      </tr>
+	  </thead>
+	  <tbody>
+	    {% for table in tables %}
+	      <tr>
+	        <td>{{table["tableNo"]}}</td>
+	        <td>{{table["numberofSeats"]}}</td>
+	        <td>{{table["availability"]}} {{"({})".format(table["status"]) if table["status"]}}</td>
+	      </tr>
+	    {% endfor %}
+	  </tbody>
+	</table>
+</div>
+
+{% endblock %}
+
+{% block js %}
+
+  <script>
+    $(document).ready(function() {
+        $('#example').DataTable();
+    } );
+  </script>
+
+{% endblock %}

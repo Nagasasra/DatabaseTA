@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+
+{% block title %} Edit Transaction {% endblock %}
+
+{% block body %}
+
+<br />
+    <div class="d-flex justify-content-center">
+        <h1>Editing a Transaction</h1>
+    </div>
+<br />
+
+<div class="container d-flex justify-content-center" >
+    <div class="col-md-4" style="border:1px solid #cecece; padding:40px 20px 40px 20px;">
+        <div class="invalid-feedback d-flex justify-content-center">{{ errorMessage }}</div>
+      <form action="#" method="get">
+        <input type="hidden" name="id" value="{{transaction.id}}">
+        <div class="form-group">
+            <label>Exit Time</label>
+          <input type="time" class="form-control" name="exit_time" placeholder="exit time" value="{{transaction.exit_time}}">
+        </div>
+        <div class="form-group">
+        	<select name="status" class="form-control" required="required">
+                <option value="">Choose Status</option>
+                <option value="Waiting for Order" {{'selected' if transaction.status == 'Waiting for Order'}}>Waiting for Order</option>
+                <option value="Order Delivered" {{'selected' if transaction.status == 'Order Delivered'}}>Order Delivered</option>
+                <option value="Order Received" {{'selected' if transaction.status == 'Order Received'}}>Order Received</option>
+                <option value="Finished" {{'selected' if transaction.status == 'Finished'}}>Finished</option>
+                <option value="Cancelled" {{'selected' if transaction.status == 'Cancelled'}}>Cancelled</option>
+        	</select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

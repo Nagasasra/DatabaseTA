@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+
+{% block title %} Add Transaction {% endblock %}
+
+{% block body %}
+
+<br />
+    <div class="d-flex justify-content-center">
+        <h1>Adding a Transaction</h1>
+    </div>
+<br />
+
+<div class="container d-flex justify-content-center" >
+    <div class="col-md-4" style="border:1px solid #cecece; padding:40px 20px 40px 20px;">
+        <div class="invalid-feedback d-flex justify-content-center">{{ errorMessage }}</div>
+      <form action="#" method="get">
+        <div class="form-group">
+            <label>Date</label>
+          <input type="date" class="form-control" name="date" placeholder="date">
+        </div>
+        <div class="form-group">
+            <label>Arrival Time</label>
+          <input type="time" class="form-control" name="arrival_time" placeholder="arrival time">
+        </div>
+        <div class="form-group">
+        	<select name="staffId" class="form-control" required="required">
+        		<option value="">Choose Staff</option>
+                {% for staff in staffs %}
+        			<option value="{{staff.id}}">{{staff.firstName}} {{staff.lastName}}</option>
+                {% endfor %}
+        	</select>
+        </div>
+        <div class="form-group">
+            <select name="tableNo" class="form-control" required="required">
+                <option value="">Choose Table</option>
+                {% for table in tables %}
+                    {% if table.availability == "Available" %}
+                    <option value="{{table.tableNo}}">{{table.tableNo}} ({{table.numberofSeats}} seats)</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+      </form>
+    </div>
+  </div>
+
+{% endblock %}

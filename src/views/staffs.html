@@ -1,0 +1,73 @@
+{% extends 'layout.html' %}
+
+{% block title %} Employees {% endblock %}
+
+{% block body %}
+<style>
+    .picture4 {
+        -webkit-background-size: 60px 60px;
+        background-size: 60px 60px;
+        border: 0;
+        -webkit-border-radius: 100%;
+        border-radius: 100%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        height: 60px;
+        width: 60px;
+        z-index: 0;
+    }
+</style>
+
+
+<br />
+    <div class="d-flex justify-content-center">
+        <h1>List of Staffs</h1>
+    </div>
+<br />
+
+<div class="container">
+	<div class="d-flex justify-content-end">
+		<a href="/staffs/add"><span type="button" class="btn btn-primary">Add Staff</span></a>
+	</div>
+	<br />
+	<table id="example" class="display table table-bordered table-sm" style="width:100%">
+	  <thead>
+	      <tr>
+	          <th>Profile Picture</th>
+	          <th>First Name</th>
+	          <th>Last Name</th>
+	          <th>Age</th>
+	          <th>Gender</th>
+	          <th>Email Address</th>
+	          <th>Position</th>
+	      </tr>
+	  </thead>
+	  <tbody>
+	    {% for staff in staffs %}
+	      <tr>
+	      	<td><img src="/static/profiles/{{staff.picture if staff.picture else 'default.png'}}" alt="" class="picture4"></td>
+	        <td>{{staff["firstName"]}}</td>
+	        <td>{{staff["lastName"]}}</td>
+	        <td>{{staff["age"]}}</td>
+	        <td>{{staff["gender"]}}</td>
+	        <td>{{staff["email"]}}</td>
+	        <td>{{staff["position"]}}</td>
+	      </tr>
+	    {% endfor %}
+	  </tbody>
+	</table>
+</div>
+
+{% endblock %}
+
+{% block js %}
+
+  <script>
+    $(document).ready(function() {
+        $('#example').DataTable();
+    } );
+  </script>
+
+{% endblock %}
